@@ -9,11 +9,11 @@
                         <col width="*"/>
                     </colgroup>
                     <tr>
-                        <th>제목</th>
-                        <td><input type="text" v-model="subject" ref="subject"></td> <!-- v-model 양방향데이터전송으로 상세 데이터를 넣어준다 -->
+                        <!-- <th>제목</th> -->
+                        <td><input type="text" v-model="subject" ref="subject" placeholder="제목을 입력해 주세요"></td> <!-- v-model 양방향데이터전송으로 상세 데이터를 넣어준다 -->
                     </tr>
                     <tr>
-                        <th>내용</th>
+                        <!-- <th>내용</th> -->
                         <td><textarea v-model="content" ref="content" id="content"></textarea></td>
                     </tr>
                 </table>
@@ -32,7 +32,7 @@
 import $axios from 'axios';
 import $ from 'jquery';
 import 'bootstrap';
-import 'summernote/dist/summernote-lite.js'
+import 'summernote/dist/summernote-lite.js';
 import 'summernote/dist/summernote-lite.css';
 // import 'summernote/dist/lang/summernote-ko-KR';
 // const XLSX = require("xlsx");
@@ -182,7 +182,7 @@ function sendFile(file, el){
         enctype: 'multipart/form-data'
     }).then((res)=>{
         if(res.data.success) {
-            console.log('이미지 업로드 성공');
+            console.log(res.data.fileInfo.path);
             $(el).summernote('editor.insertImage', 'http://localhost:3000'+res.data.fileInfo.path);
         } else {
             alert("서버와의 연결에 실패했습니다.");

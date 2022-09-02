@@ -1,24 +1,27 @@
 <template>
   <div id="app">
     <!-- 추가된 헤더 컴포넌트 사용 -->
-    <MyHeader />
+    <Header/>
+    <RightMenu/>
     <div class="container"> <!-- class 추가 --> 
       <router-view/>
     </div>
     <!-- 추가된 풋터 컴포넌트 사용 -->
-    <MyFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import MyHeader from './components/common/MyHeader.vue'
-import MyFooter from './components/common/MyFooter.vue'
+import Header from './components/common/MyHeader.vue'
+import Footer from './components/common/Footer.vue'
+import RightMenu from './components/common/RightMenu.vue'
 
 export default {
   name: 'App',
   components: {
-    MyHeader,
-    MyFooter
+    Header,
+    Footer,
+    RightMenu
   }
 }
 </script>
@@ -35,7 +38,7 @@ html,body{padding:0; margin:0;}
 h1{color:#43b984;}
 table{width:100%; border-collapse:collapse;}
 .wrap{width:100%;}
-.container{width:800px; margin:0 auto;}
+.container{width:70%; margin:0 auto; /*float: right;*/}
 a{text-decoration:none;}
 .btn{padding:10px; background:#34445c; color:#fff;}
 </style>
